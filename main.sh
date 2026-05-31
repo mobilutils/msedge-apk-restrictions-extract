@@ -18,10 +18,10 @@ print(result['version'])
 mkdir -p "$BASE_DIR"
 if [[ -f "$STATE_FILE" ]] && grep -q "^$CURRENT_VERSION$" "$STATE_FILE"; then
     echo "✓ Version $CURRENT_VERSION already downloaded"
-    TARGET_DIR="$(cd "$(dirname "$0")" && pwd)/$BASE_DIR/PlaystoreDL_MicrosoftEdge_${CURRENT_VERSION}"
+    TARGET_DIR="$(cd "$(dirname "$0")" && pwd)/$BASE_DIR/${PACKAGE}_${CURRENT_VERSION}"
 else
     # 3. Download APK via gplaydl [[2]]
-    TARGET_DIR="$(cd "$(dirname "$0")" && pwd)/$BASE_DIR/PlaystoreDL_MicrosoftEdge_${CURRENT_VERSION}"
+    TARGET_DIR="$(cd "$(dirname "$0")" && pwd)/$BASE_DIR/${PACKAGE}_${CURRENT_VERSION}"
     mkdir -p "$TARGET_DIR"
     cd "$TARGET_DIR"
 
