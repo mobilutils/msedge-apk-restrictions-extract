@@ -1,17 +1,23 @@
 # here we will find the file holding "restrictions" that can be managed via MDM
 # this file is an xml file
+echo "Running $(basename "$0") to extract restrictions.xml from the latest downloaded APK..."
 
 # Capture script directory early (before any cd changes cwd)
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="$(pwd)"
 
 BASE_DIR="PlaystoreDL_MicrosoftEdge"
 
 cd $BASE_DIR
 # Find the latest downloaded version directory
-LATEST_DIR=$(ls -d * 2>/dev/null | sort -V | tail -n 1)
-cd "$LATEST_DIR"
+# the below works like a charm for mac I need to propose a solution for linux as well
+#LATEST_DIR=$(find . -mindepth 1 -maxdepth 1 -type d -exec stat -f "%B %N" {} + | sort -rn | head -n 1 | cut -d' ' -f2-)
+LATEST_DIR=$(ls -d com.microsoft.emmx* | sort -V | tail -n 1)
 
-APK_DIR=$(pwd)
+
+APK_DIR="$(pwd)/$LATEST_DIR"
+
+cd $APK_DIR
+
 
 # Idempotency: skip extraction if outputs already exist
 if [[ -f "$APK_DIR/app_restrictions.xml" ]] && [[ -f "$APK_DIR/strings.xml" ]]; then
