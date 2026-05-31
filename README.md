@@ -1,13 +1,58 @@
 # msedge-apk-restrictions-extract
-I need, for a colleague of mine,
-to keep track of Microsoft Edge APK restrictions/diff/changes
-This by downloading edge apk, and extract it's app_restrictions.xml.
 
+Extract and track Microsoft Edge MDM restrictions from APK files. Downloads the latest Edge APK, decompiles it, and produces a consolidated CSV/JSON of all available MDM policies.
 
-Install dependencies: pip install google-play-scraper packaging gplaydl
-edge-monitor.py is handling the work (our main)
-Test manually: python3 edge-monitor.py
-Add to cron: 
-### run every 2 days at 21h42m
-42 21 */2 * * /usr/bin/python3 /path/to/edge-monitor.py
-Monitor logs: tail -f ~/logs/edge-monitor.log
+## Install dependencies
+
+### Nux
+
+```bash
+pip install google-play-scraper packaging gplaydl
+```
+
+### MacOSx
+
+```bash
+python3 -m venv mvenv
+source mvenv/bin/activate
+pip3 install google-play-scraper packaging gplaydl
+```
+
+## Usage
+
+### Automated (recommended)
+
+`main.sh` handles the full workflow: download the latest APK, extract it, and generate the restriction reports.
+
+```bash
+source mvenv/bin/activate
+./main.sh
+```
+
+### Manual extraction
+
+```bash
+bash extract_restrictions_from_last_apk.sh
+```
+
+### Output
+
+After running, the latest APK directory contains:
+
+- `app_restrictions.xml` — raw restriction definitions from the APK
+- `strings.xml` — resolved string resources
+- `app_restrictions.json` — structured JSON of all restrictions
+- `app_restrictions_consolidated.csv` — tabular CSV with columns: key, title, default_value, type, description
+
+### Cron
+
+```bash
+# Run every 2 days at 21:42
+42 21 */2 * * /usr/bin/bash /path/to/main.sh
+```
+
+### Monitor logs
+
+```bash
+tail -f ~/logs/edge-monitor.log
+```

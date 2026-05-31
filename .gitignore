@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*mvenv/
+
+# APK files (binary, large)
+*.apk
+
+# Extracted/decompiled output
+PlaystoreDL_MicrosoftEdge/PlaystoreDL_MicrosoftEdge_*/decoded/
+PlaystoreDL_MicrosoftEdge/PlaystoreDL_MicrosoftEdge_*/APKTOOL_RENAMED_*
+
+# Temp extraction dir
+/tmp/decoded/
+
+# OS
+.DS_Store
+
+# QWEN related
+.qwen/
+QWEN.md
+
