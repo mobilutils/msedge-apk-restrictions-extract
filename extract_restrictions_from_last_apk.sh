@@ -43,7 +43,8 @@ cd decoded
 # there is high probability that the file is under res/xml/ or res/values/ folder
 
 # Find the file that contains ALL 3 strings (the MDM restrictions file)
-RESTRICTIONS_FILE=$(grep -rlE "HomepageLocation" ./ | xargs grep -l "ScreenCaptureAllowedByOrigins" | xargs grep -l "CopilotNewTabPageEnabled" | head -1)
+#RESTRICTIONS_FILE=$(grep -rlE "HomepageLocation" ./ | xargs grep -l "ScreenCaptureAllowedByOrigins" | xargs grep -l "CopilotNewTabPageEnabled" | head -1)
+RESTRICTIONS_FILE=$(grep -rlE "HomepageLocation|ScreenCaptureAllowedByOrigins|CopilotNewTabPageEnabled" | grep "APKTOOL")
 
 if [ -z "$RESTRICTIONS_FILE" ]; then
     echo "Error: Could not find a file containing all three MDM restriction strings."

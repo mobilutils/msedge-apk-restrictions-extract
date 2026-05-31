@@ -1,6 +1,7 @@
 #!/bin/bash
 # edge-monitor.sh
 
+source mvenv/bin/activate
 #set -euo pipefail
 
 START_DIR="$(pwd)"

@@ -15,6 +15,12 @@ pip install google-play-scraper packaging gplaydl
 
 ### MacOSx
 
+we need `apktool`
+to install it via brew :
+```bash
+brew upadte && brew upgrade && brew install apktool
+```bash
+
 ```bash
 python3 -m venv mvenv
 source mvenv/bin/activate
@@ -28,7 +34,7 @@ pip3 install google-play-scraper packaging gplaydl
 `main.sh` handles the full workflow: download the latest APK, extract it, and generate the restriction reports.
 
 ```bash
-source mvenv/bin/activate
+# source mvenv/bin/activate
 ./main.sh
 ```
 
