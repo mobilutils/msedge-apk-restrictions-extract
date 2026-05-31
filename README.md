@@ -1,6 +1,6 @@
 # msedge-apk-restrictions-extract
 
-![tags](./lalinea-bouh-edge.png)
+![tags](./lalinea-bouh-edge_600x454.png)
 <left><u><bold>Figure1</bold></u>: this persona is "Mr. Linea" created by Italian cartoonist Osvaldo Cavandoli ~1970. (this image has been misappropriated).</left>
 
 Extract and track Microsoft Edge MDM restrictions from APK files. Downloads the latest Edge APK, decompiles it, and produces a consolidated CSV/JSON of all available MDM policies.
