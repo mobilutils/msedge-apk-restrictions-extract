@@ -7,9 +7,10 @@ Extract and track Microsoft Edge MDM restrictions from APK files. Downloads the 
 
 ## Install dependencies
 
-### Nux
+### Nux (debi/ubuntu)
 
 ```bash
+apt-get install apktool
 pip install google-play-scraper packaging gplaydl
 ```
 
@@ -19,9 +20,7 @@ we need `apktool`
 to install it via brew :
 ```bash
 brew upadte && brew upgrade && brew install apktool
-```bash
 
-```bash
 python3 -m venv mvenv
 source mvenv/bin/activate
 pip3 install google-play-scraper packaging gplaydl
@@ -50,7 +49,7 @@ After running, the latest APK directory contains:
 
 - `app_restrictions.xml` — raw restriction definitions from the APK
 - `strings.xml` — resolved string resources
-- `app_restrictions.json` — structured JSON of all restrictions
+- `app_restrictions_consolidated.json` — structured JSON of all restrictions
 - `app_restrictions_consolidated.csv` — tabular CSV with columns: key, title, default_value, type, description
 
 ### Cron
@@ -63,5 +62,5 @@ After running, the latest APK directory contains:
 ### Monitor logs
 
 ```bash
-tail -f ~/logs/edge-monitor.log
+tail -f ~/logs/logs.txt
 ```

@@ -59,7 +59,7 @@ def main():
     apk_dir = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
     xml_path = os.path.join(apk_dir, "app_restrictions.xml")
     strings_path = os.path.join(apk_dir, "strings.xml")
-    json_path = os.path.join(apk_dir, "app_restrictions.json")
+    json_path = os.path.join(apk_dir, "app_restrictions_consolidated.json")
     csv_path = os.path.join(apk_dir, "app_restrictions_consolidated.csv")
 
     if not os.path.isfile(xml_path):
