@@ -80,7 +80,7 @@ else
 fi
 
 # 6. Consolidate if needed (skip if outputs already exist and weren't just extracted)
-if [[ "$EXTRACTED" == "true" ]] || [[ ! -f "${TARGET_DIR}/app_restrictions_consolidated.csv" ]] || [[ ! -f "${TARGET_DIR}/app_restrictions_consolidated.json" ]]; then
+if [[ "$EXTRACTED" == "true" ]] || [[ ! -f "${TARGET_DIR}/app_restrictions_consolidated.csv" ]] || [[ ! -f "${TARGET_DIR}/app_restrictions_consolidated_consolidated.json" ]]; then
     python3 "consolidate_restrictions.py" "${TARGET_DIR}"
 else
     echo "✓ app_restrictions_consolidated.json and app_restrictions_consolidated.csv already exist — skipping consolidation"
